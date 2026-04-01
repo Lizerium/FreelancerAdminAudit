@@ -11,6 +11,13 @@
 
 ---
 
+> [!NOTE]
+> Этот проект является частью экосистемы **Lizerium** и относится к направлению:
+>
+> * [`Lizerium.Tools.Structs`](https://github.com/Lizerium/Lizerium.Tools.Structs)
+>
+> Если вы ищете связанные инженерные и вспомогательные инструменты, начните оттуда.
+
 # 🇷🇺 Русское описание 🇷🇺
 
 [English version](README.en.md)
