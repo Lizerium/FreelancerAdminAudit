@@ -9,93 +9,109 @@
   <img src="https://shields.dvurechensky.pro/badge/Status-Research-00C853?style=for-the-badge" />
 </p>
 
+<div align="center" style="margin: 20px 0; padding: 10px; background: #1c1917; border-radius: 10px;">
+  <strong>🌐 Language: </strong>
+  
+  <a href="./README.ru.md" style="color: #F5F752; margin: 0 10px;">
+    🇷🇺 Russian
+  </a>
+  | 
+  <span style="color: #0891b2; margin: 0 10px;">
+    ✅ 🇺🇸 English (current)
+  </span>
+</div>
+
 ---
 
 > [!NOTE]
-> Этот проект является частью экосистемы **Lizerium** и относится к направлению:
+> This project is part of the **Lizerium** ecosystem and belongs to the following direction:
 >
-> * [`Lizerium.Tools.Structs`](https://github.com/Lizerium/Lizerium.Tools.Structs)
+> - [`Lizerium.Tools.Structs`](https://github.com/Lizerium/Lizerium.Tools.Structs)
 >
-> Если вы ищете связанные инженерные и вспомогательные инструменты, начните оттуда.
+> If you are looking for related engineering and supporting tools, start there.
 
-# 🇷🇺 Русское описание 🇷🇺
+# Description
 
-[English version](README.en.md)
+---
 
-## ⚠️ Важно
+## ⚠️ Important
 
 > [!WARNING]
-> Этот проект опубликован **исключительно в исследовательских и образовательных целях**.  
-> Его задача — показать архитектурные и конфигурационные ошибки удалённых административных интерфейсов серверов **Freelancer (2003)**.
+> This project is published **strictly for research and educational purposes**.  
+> Its goal is to demonstrate architectural and configuration weaknesses in remote administrative interfaces of **Freelancer (2003)** servers.
 
 > [!IMPORTANT]
-> Во время исследования была выявлена проблема удалённого доступа к административной панели на одном из публичных серверов сообщества.  
-> О проблеме **было сообщено администраторам**, после чего они внесли исправления. Например [Freelancer: Sirius Revival](https://fl-sr.eu/) или [Freelancer: Rebirth](https://freelancerothe.ucoz.ru/)
+> During the research, a remote administrative access issue was identified on a public community server.  
+> The issue **was responsibly disclosed to the administrators**, and fixes were applied.  
+> For example:
+>
+> - [Freelancer: Sirius Revival](https://fl-sr.eu/)
+> - [Freelancer: Rebirth](https://freelancerothe.ucoz.ru/)
 
 > [!CAUTION]
-> Если аналогичные конфигурации всё ещё используются на других серверах, они могут быть подвержены тем же рискам.
+> If similar configurations are still used on other servers, they may be vulnerable to the same risks.
 
 ---
 
-# ❓ Что это такое
+## ❓ What is this
 
-**FreelancerAdminAudit** — это простой TCP-клиент для анализа и проверки удалённой административной консоли серверов **Freelancer (2003)**.
+**FreelancerAdminAudit** is a simple TCP client designed to analyze and test remote administrative consoles of **Freelancer (2003)** servers.
 
-С его помощью можно:
+With it, you can:
 
-- подключаться к административной TCP-панели сервера
-- проходить аутентификацию по паролю
-- отправлять команды в консоль сервера
-- анализировать, насколько опасно и открыто устроен удалённый доступ
-- воспроизводить найденные ошибки конфигурации и архитектуры
-
----
-
-# 🔥 Почему проект вообще появился
-
-Во время технического исследования старых серверных решений для **Freelancer (2003)** я заметил, что часть серверов использует **удалённую административную панель**, доступ к которой строится слишком примитивно:
-
-- открытый TCP-порт
-- парольная авторизация
-- отсутствие дополнительных ограничений
-- отсутствие нормальной сетевой изоляции
-- чрезмерно опасные административные команды
-
-В рамках проверки я убедился, что при определённых условиях можно получить доступ к административной панели сервера.
-
-Это не “магический эксплойт”, а демонстрация того, насколько опасной может быть **ошибочная конфигурация** старых игровых серверов.
+- connect to a server’s administrative TCP panel
+- authenticate using a password
+- send commands to the server console
+- evaluate how exposed and insecure remote access is
+- reproduce configuration and architectural weaknesses
 
 ---
 
-# 💣 Что может быть доступно через такую панель
+## 🔥 Why this project exists
 
-В зависимости от конфигурации сервера и набора плагинов удалённая консоль может позволять:
+While researching legacy server implementations for **Freelancer (2003)**, I noticed that some servers use **remote admin panels** with extremely weak protection:
 
-- читать информацию об игроках
-- получать данные персонажей
-- изменять деньги / репутацию / груз
-- кикать / банить игроков
-- выполнять административные действия
-- управлять плагинами
-- получать служебную информацию сервера
+- open TCP port
+- password-based authentication only
+- no additional restrictions
+- lack of proper network isolation
+- overly powerful administrative commands
 
-То есть проблема не в “красивом баге”, а в том, что некоторые серверы исторически держали **слишком мощную админку на слишком слабой защите**.
+During testing, I confirmed that under certain conditions, it is possible to access the server’s administrative interface.
 
----
-
-# 🧪 Что делает этот клиент
-
-Программа:
-
-- подключается к указанному IP и порту
-- ожидает приглашение к аутентификации
-- отправляет пароль
-- после успешной авторизации позволяет вручную отправлять команды
-- отображает ответы сервера в консоли
+This is not a “magic exploit”, but a demonstration of how dangerous **misconfigured legacy systems** can be.
 
 ---
 
-# 🛠️ Технологии
+## 💣 What can be accessed through such panels
+
+Depending on server configuration and installed plugins, a remote console may allow:
+
+- reading player information
+- accessing character data
+- modifying money / reputation / cargo
+- kicking / banning players
+- executing administrative actions
+- managing plugins
+- retrieving internal server data
+
+The issue is not a “clever hack”, but the fact that some servers historically exposed **powerful admin capabilities with weak protection**.
+
+---
+
+## 🧪 What this client does
+
+The application:
+
+- connects to a specified IP and port
+- waits for authentication prompt
+- sends password
+- after successful authentication allows manual command execution
+- displays server responses in the console
+
+---
+
+## 🛠️ Technologies
 
 - **C#**
 - **.NET**
@@ -105,17 +121,17 @@
 
 ---
 
-# 🚀 Пример работы
+## 🚀 Example
 
 ```text
-[+] Подключение установлено.
+[+] Connection established.
 [<] Welcome to FLHack, please authenticate
-[>] Отправлен логин: pass test
+[>] Sent login: pass test
 [<] OK
 
-Введите команду: help
-[>] Отправлена команда: help
-[<] Ответ сервера:
+Enter command: help
+[>] Sent command: help
+[<] Server response:
 [version]
 4.0.0-Dormammu plugin
 [commands]
@@ -127,8 +143,8 @@ OK
 
 ---
 
-# Доказательства того что я оповестил авторов серверов
+## 📢 Responsible Disclosure Proof
 
-## Freelancer: Sirius Revival
+### Freelancer: Sirius Revival
 
 ![alt text](media/Freelancer_Sirius.png)
