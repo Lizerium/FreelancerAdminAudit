@@ -2,8 +2,8 @@
  * Author: Nikolay Dvurechensky
  * Site: https://dvurechensky.pro/
  * Gmail: dvurechenskysoft@gmail.com
- * Last Updated: 10 июня 2026 06:52:17
- * Version: 1.0.76
+ * Last Updated: 11 июня 2026 13:26:25
+ * Version: 1.0.77
  */
 
 using System.Net.Sockets;
